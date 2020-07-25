@@ -218,12 +218,12 @@
                     </div>
                 </div>
             </div>
-            <form action="http://formspree.io/jmreyes2013@gmail.com" method="POST">
-                <!-- <input type="email" name="_replyto"> -->
-                <!-- <textarea   name="body">
+            <!-- <form action="https://formspree.io/jmreyes2013@gmail.com" method="POST">
+                <input type="email" name="_replyto"> -->
+                <textarea   name="body">
 
-                </textarea> -->
-                <!-- <input type="submit" value="Send"> -->
+                </textarea>
+                <input type="submit" value="Send">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <input type="text" placeholder="Your name" name="name">
@@ -244,18 +244,30 @@
                             <option value="">Exterior & Interior</option>
                         </select>
                     </div>
-<!--                     <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="col-lg-4 col-md-4 col-sm-6">
                         <select>
                             <option value="">Car type</option>
                             <option value="">Hatchback</option>
                             <option value="">Sedan</option>
                         </select>
-                    </div> -->
+                    </div>
                     <div class="col-lg-12 text-center">
                         <button type="submit" class="site-btn">SEND INQUIRY</button>
                     </div>
                 </div>
-            </form>
+            </form> -->
+            <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/jmreyes2013@gmail.com" method="post">
+                <fieldset id="fs-frm-inputs">
+                  <label for="full-name">Full Name</label>
+                  <input type="text" name="name" id="full-name" placeholder="Michael Bubbly" required="">
+                  <label for="email-address">Email Address</label>
+                  <input type="email" name="_replyto" id="email-address" placeholder="email@domain.tld" required="">
+                  <label for="message">Message</label>
+                  <textarea rows="5" name="message" id="message" placeholder="What's the fizz?" required=""></textarea>
+                  <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+                </fieldset>
+                <input type="submit" value="Submit">
+              </form>
         </div>
     </section>
     <!-- Application Form Section End -->
