@@ -221,16 +221,16 @@
             <form method="POST" name="contact_form" action="contact-form-handler.php">
                 <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-6">
-                        <input type="text" placeholder="Your name">
+                        <input type="text" placeholder="Your name" name="name">
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
-                        <input type="text" placeholder="Your Email">
+                        <input type="text" placeholder="Your Email" name="email">
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
-                        <input type="text" placeholder="Your Phone">
+                        <input type="text" placeholder="Your Phone" name="phone">
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
-                        <input type="text" class="datepicker_pop" placeholder="Date & time">
+                        <input type="text" class="datepicker_pop" placeholder="Date & time" name="time">
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-6">
                         <select>
@@ -514,40 +514,6 @@
     var frmvalidator  = new Validator("contactform");
     frmvalidator.addValidation("name","req","Please provide your name");
     frmvalidator.addValidation("email","req","Please provide your email");
-    frmvalidator.addValidation("email","email",
-      "Please enter a valid email address");
+    frmvalidator.addValidation("phone","req","Please provide your email");
+    frmvalidator.addValidation("time","req","Please provide your email");
 </script>
-
-<?php
-$errors = '';
-$myemail = 'jmreyes2013@gmail.com';//<-----Put Your email address here.
-if(empty($_POST['name'])  ||
-   empty($_POST['email']) ||
-   empty($_POST['message']))
-{
-    $errors .= "\n Error: all fields are required";
-}
-$name = $_POST['name'];
-$email_address = $_POST['email'];
-$message = $_POST['message'];
-if (!preg_match(
-"/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i",
-$email_address))
-{
-    $errors .= "\n Error: Invalid email address";
-}
-
-if( empty($errors))
-{
-$to = $myemail;
-$email_subject = "Contact form submission: $name";
-$email_body = "You have received a new message. ".
-" Here are the details:\n Name: $name \n ".
-"Email: $email_address\n Message \n $message";
-$headers = "From: $myemail\n";
-$headers .= "Reply-To: $email_address";
-mail($to,$email_subject,$email_body,$headers);
-//redirect to the 'thank you' page
-header('Location: contact-form-thank-you.html');
-}
-?>
