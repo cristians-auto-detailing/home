@@ -480,7 +480,7 @@ ol {
 
 .header__right__social {
 	display: inline-block;
-	margin-right: 25px;
+	margin-right: -800px;
 }
 
 .header__right__social a {
